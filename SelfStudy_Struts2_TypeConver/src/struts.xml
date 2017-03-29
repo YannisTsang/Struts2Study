@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+   <package name="zyz" extends="struts-default">
+     <action name="loginsss" class="com.sise.ognlConvert.action.LoginAction">
+        <result name="success">/index.jsp</result>
+        <result name="error">/index.jsp</result>
+     </action>
+   </package>
+   
+   <package name="zyzLC" extends="struts-default">
+      <action name="login" class="com.sise.LocalConver.action.LoginAction">
+          <result name="success">/welcomeLC.jsp</result>
+          <result name="error">/welcomeLC.jsp</result>
+      </action>
+   </package>
+   
+   <package name="zyzSTC" extends="struts-default">
+      <action name="loginSTC" class="com.sise.StrutsTypeConvert.action.LoginSTCAction">
+          <result name="success">/welcomeSTC.jsp</result>
+          <result name="error">/welcomeSTC.jsp</result>
+      </action>
+   </package> 
+   
+   <constant name="struts.custom.i18n.resources" value="mess"/>
+   <package name="zyzEH" extends="struts-default">
+      <action name="loginEH" class="com.sise.errorHandler.action.LoginEHAction">
+           <result name="input">/inputEH.jsp</result>
+           <result name="success">/welcomeEH.jsp</result>
+           <result name="error">/welcomeEH.jsp</result>
+      </action>
+   </package>
+   
+   <constant name="struts.custom.i18n.resources" value="mess2"/>	
+   <constant name="struts.i18n.encoding" value="UTF-8"/>
+   <package name="zyzEH2" extends="struts-default">
+   <action name="loginEH2" class="com.sise.errorHandler2.action.LoginEH2Action">
+     <result name="input">/inputEH2.jsp</result>
+     <result name="success">/welcomeEH2.jsp</result>
+     <result name="error">/welcomeEH2.jsp</result>
+     </action>
+   </package>
+</struts>
