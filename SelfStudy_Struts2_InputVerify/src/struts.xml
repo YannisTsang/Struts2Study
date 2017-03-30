@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+     <constant name="struts.i18n.encoding" value="GBK"/>
+     <constant name="struts.custom.i18n.resources" value="mess"/>
+     <package name="zyzRegist" extends="struts-default">
+        <action name="*Pro" class="com.sise.basicValidate.action.RegistAction" method="{1}">
+           <result name="input">/WEB-INF/content/regist.jsp</result>
+           <result>/WEB-INF/content/show.jsp</result>
+        </action>
+        <action name="*">
+          <result>/WEB-INF/content/{1}.jsp</result>
+        </action>
+     </package>
+</struts>

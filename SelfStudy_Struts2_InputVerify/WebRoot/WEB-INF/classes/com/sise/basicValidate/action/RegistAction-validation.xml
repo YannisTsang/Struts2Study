@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC 
+	"-//OpenSymphony Group//XWork Validator 1.0.3//EN"
+	"E:/U Study/xwork-validator-1.0.3.dtd">
+<validators>
+  <!-- 校验Action的name属性 -->
+	<field name="username">
+		<!-- 指定name属性必须满足必填规则 -->
+		<field-validator type="requiredstring" short-circuit="true">
+			<param name="trim">true</param>
+		   <!-- <message>必须输入名字</message> -->
+		    <message key="username.requried"/>   
+		</field-validator>
+		
+		<!-- 指定name属性必须匹配正则表达式 -->
+		<field-validator type="regex">
+		<!-- 很多人会在规定正则表达式的时候在param标签中输入expression，但可能是版本问题，在这里是行不通的，因此我在param标签设置成regex属性，正则表达式便起了作用。 -->
+			<param name="regex"><![CDATA[(\w{4,25})]]></param>
+			<!--  
+			<message>您输入的用户名只能是字母和数字
+				，且长度必须在4到25之间</message>
+		    -->
+		    <message key="username.regex"/>
+		</field-validator>
+	</field>
+	<!-- 校验Action的pass属性 -->
+	<field name="password">
+		<!-- 指定pass属性必须满足必填规则 -->
+		<field-validator type="requiredstring" short-circuit="true">
+			<param name="trim">true</param>
+			<!-- <message>必须输入密码</message> -->
+			<message key="password.requried"/>
+		</field-validator>
+		<!-- 指定pass属性必须满足匹配指定的正则表达式 -->
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[(\w{4,25})]]></param>
+			<!-- 
+			<message>您输入的密码只能是字母和数字
+				，且长度必须在4到25之间</message>
+			-->
+			<message key="password.regex"/>	
+		</field-validator>
+	</field>
+    
+  <!-- 指定age属性必须在指定范围内-->
+	<field name="age">
+		<field-validator type="int">
+			<param name="min">1</param>
+			<param name="max">150</param>
+			<!-- <message>年纪必须在1到150之间</message> -->
+			<message key="age.range"/>
+		</field-validator>
+	</field>
+	<!-- 指定birth属性必须在指定范围内-->
+	<field name="birth">
+		<field-validator type="date">
+			<!-- 下面指定日期字符串时，必须使用本Locale的日期格式 -->
+			<param name="min">1900-01-01</param>
+			<param name="max">2050-02-21</param>
+			<!-- <message>生日必须在${min}到${max}之间</message> -->
+			<message key="birth.range"/>
+		</field-validator>
+	</field>
+</validators>
