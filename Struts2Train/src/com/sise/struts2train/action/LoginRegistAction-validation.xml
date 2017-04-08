@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE validators PUBLIC
+        "-//OpenSymphony Group//XWork Validator 1.0.3//EN"
+        "E:/U Study/xwork-validator-1.0.3.dtd">
+
+<validators>
+    <field name="user.username">
+            <field-validator type="requiredstring" short-circuit="true">
+                <param name="trim">true</param>
+                    <message key="username.required"/>
+            </field-validator>
+
+            <field-validator type="regex" >
+                <param name="regex"><![CDATA[(\w{4,25})]]></param>
+                <message key="username.regex"/>
+            </field-validator>
+
+            <field-validator type="fieldexpression" >
+                <param name="expression"><![CDATA[(user.username=="Yannis")]]></param>
+                <message key="username.expression"/>
+            </field-validator>
+    </field>
+
+    <field name="user.password">
+            <field-validator type="requiredstring" short-circuit="true">
+                <param name="trim">true</param>
+                    <message key="password.required"/>
+            </field-validator>
+
+            <field-validator type="regex" >
+                <param name="regex"><![CDATA[(\w{4,25})]]></param>
+                <message key="password.regex"/>
+            </field-validator>
+
+        <field-validator type="fieldexpression" >
+            <param name="expression"><![CDATA[(user.password=="1234")]]></param>
+            <message key="password.expression"/>
+        </field-validator>
+    </field>
+
+    <field name="user.permission">
+            <field-validator type="requiredstring" short-circuit="true">
+                <param name="trim">true</param>
+                <message key="permission.required"/>
+            </field-validator>
+    </field>
+</validators>
